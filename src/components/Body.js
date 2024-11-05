@@ -17,6 +17,7 @@ const Body = () => {
     );
     const json = await data.json();
     console.log(json);
+    setListOfRestaurant(json.data.cards[0].card.card.type);
   };
 
   return (
