@@ -17,27 +17,57 @@ const AppLayout = () => {
   return (
     <div className="app">
       <Header />
-      <Body />
+      <Outlet/>
     </div>
   );
 };
-
-
 const appRouter = createBrowserRouter([
   {
-    path: "/" ,
-    element:<AppLayout/>,
-    errorElement:<Error/>
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/", // This should be just "/" to match the base path of the parent route
+        element: <Body />,
+      },
+      {
+        path: "/About",
+        element: <About />,
+      },
+      {
+        path: "/Contact",
+        element: <ContactUs />,
+      },
+    ],
+    errorElement: <Error />,
   },
-  {
-    path : "/About" ,
-    element : <About/>,
-  },
-  {
-    path:"/Contact",
-    element:<ContactUs/>,
-  }
-]) ;
+]);
+
+// const appRouter = createBrowserRouter([
+//   {
+//     path: "/" ,
+//     element:<AppLayout/>,
+//     children :
+//      [ 
+
+//       {
+//       path : "/" ,
+//       element :<Body/> ,
+//     },
+//     {
+//       path : "/About" ,
+//       element : <About/>,
+//     },
+//     {
+//       path:"/Contact",
+//       element:<ContactUs/>,
+//     },
+//      ]
+//     errorElement:<Error/> ,
+//   },
+  
+  
+// ]) ;
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
