@@ -9,6 +9,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./components/About.js";
 import ContactUs from "./components/ContactUs.js";
 import Error from "./components/Error.js";
+import RestaurantMenu from "./components/restaurantMenu.js";
 
 // import biryani from "./photos/biryani.jpg";
 // import dashdinelogo from "./photos/dashdinelogo.jpeg";
@@ -37,6 +38,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/Contact",
         element: <ContactUs />,
+      },
+      {
+        path:"/restaurants/:resId" ,
+        element:<RestaurantMenu/> , 
       },
     ],
     errorElement: <Error />,
