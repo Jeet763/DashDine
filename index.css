@@ -29,7 +29,7 @@
 .res-card {
   padding: 5px;
   width: 200px;
-  /* height: 300px; */
+  height: 400px;
   margin: 5px;
   border: 1px black solid;
   color: black;
@@ -62,7 +62,7 @@
   cursor: pointer;
 }
 
-.shimmer-container{
+/* .shimmer-container{
   
   display: flex;
   border-spacing: 10px;
@@ -75,4 +75,20 @@
   height :300px; 
   color: grey;
   border: 1px solid black;
+} */
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.shimmer-cards {
+  width: 200px;
+  height: 250px;
+  background: #f6f7f8;
+  border-radius: 8px;
+  position: relative;
+  /* overflow: hidden; */
 }
