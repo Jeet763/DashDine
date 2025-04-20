@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useState , useEffect } from 'react';
 import Shimmer from './Shimmer';
 
@@ -14,13 +14,16 @@ const fetchMenu= async() =>{
     const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.52110&lng=73.85020&restaurantId=21001&catalog_qa=undefined&submitAction=ENTER");
     const json = await data.json();
     console.log(json);
+    console.log(json.resInfo?.data?.cards[2]?.card?.card?.info);
     setResInfo(json.data);
 };
   
- return resInfo === null ? ( <Shimmer/> ) : (
+// const {name} = resInfo?.data?.cards[2]?.card?.card?.info ;
+
+ return resInfo === null ? ( <Shimmer /> ) : (
 
     <div>
-      <h1>{resInfo?.data?.cards[2]?.card?.card?.info?.name}</h1>
+      <h1>{resInfo?.cards[2]?.card?.card?.info?.name} </h1>
       <h2>Menu</h2>
       <ul>
         <l1>Biryani</l1>
