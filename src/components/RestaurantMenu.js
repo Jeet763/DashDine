@@ -10,7 +10,7 @@ const RestaurantMenu = () => {
     // const[ resInfo , setResInfo ] = useState(null);
     const {resId} = useParams();
 
-    const resInfo = useRestaurantMenu(); 
+    const resInfo = useRestaurantMenu(resId); 
 
 //     useEffect(()=>{
 //         fetchMenu();
