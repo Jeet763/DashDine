@@ -1,4 +1,4 @@
-import React from "react";
+import React , {lazy , Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import "../index.css";
 import Header from "./components/Header.js";
@@ -10,9 +10,14 @@ import About from "./components/About.js";
 import ContactUs from "./components/ContactUs.js";
 import Error from "./components/Error.js";
 import RestaurantMenu from "./components/RestaurantMenu.js";
+// import Grocery from "./components/Grocery.js";
+import { lazy, Suspense } from "react";
 
 // import biryani from "./photos/biryani.jpg";
 // import dashdinelogo from "./photos/dashdinelogo.jpeg";
+
+
+const Grocery = lazy(() => import("./components/Grocery.js"));
 
 const AppLayout = () => {
   return (
@@ -42,6 +47,11 @@ const appRouter = createBrowserRouter([
       {
         path:"/restaurant/:resId" ,
         element:<RestaurantMenu/> , 
+      },
+      {
+        path:"/grocery" ,
+        element:<Suspense fallback = {<h1>Loading...</h1>}><Grocery/></Suspense> , 
+        // element = <Grocery/>,
       },
     ],
     errorElement: <Error />,
